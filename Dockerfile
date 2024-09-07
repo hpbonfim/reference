@@ -6,7 +6,7 @@ COPY public /usr/share/nginx/html/
 EXPOSE 80
 
 # Stage 2: final image
-FROM alpine:latest
+FROM alpine:3.20.3
 RUN apk add --no-cache nginx && mkdir -p /run/nginx
 COPY --from=build /usr/share/nginx/html/ /usr/share/nginx/html/
 COPY --from=build /etc/nginx/nginx.conf /etc/nginx/nginx.conf
